@@ -19,7 +19,7 @@ const fastify: FastifyInstance = Fastify({ logger: true });
 
 fastify.register(fastifyJwt, {
   secret: "supersecret",
-  sign: { expiresIn: "1m" },
+  // sign: { expiresIn: "1m" },
 });
 
 fastify.register(router);

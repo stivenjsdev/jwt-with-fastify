@@ -26,7 +26,8 @@ export const router: FastifyPluginAsync = async (
     Params: { username: string };
   }>("/generateToken/:username", async (request, reply) => {
     const { username } = request.params;
-    const token = fastify.jwt.sign({ username });
+    const token = fastify.jwt.sign({ username }, { expiresIn: "1m" });
+    // const token = fastify.jwt.sign({ username });
     return { token };
   });
 
