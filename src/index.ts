@@ -17,15 +17,16 @@ declare module "fastify" {
 
 const fastify: FastifyInstance = Fastify({ logger: true });
 
-
-fastify.register(fastifyJwt, { secret: "supersecret" });
+fastify.register(fastifyJwt, {
+  secret: "supersecret",
+  sign: { expiresIn: "1m" },
+});
 
 fastify.register(router);
 
-
 const start = async () => {
   try {
-    await fastify.listen({ port: 3000 });
+    await fastify.listen({ port: 3000, host: "0.0.0.0" });
     const serverAddress = fastify.server.address();
     if (typeof serverAddress === "object" && serverAddress !== null) {
       const { port, address } = serverAddress;
