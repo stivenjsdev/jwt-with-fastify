@@ -2,15 +2,24 @@
   "name": "jwt-fastify",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
+    "start": "tsc && node build/index.js",
+    "dev": "tsc -w & node --watch build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Stiven",
   "license": "ISC",
   "dependencies": {
     "@fastify/jwt": "^6.7.1",
     "fastify": "^4.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "typescript": "^5.0.2"
+  },
+  "volta": {
+    "node": "18.15.0"
   }
 }
